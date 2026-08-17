@@ -149,6 +149,7 @@ def save_data(df):
     os.makedirs('data', exist_ok=True)
 
     # Save raw (with timestamp) for dashboard charts
+<<<<<<< HEAD
     try:
         df.to_csv('data/space_weather_raw.csv', index=False)
         print("\n💾 Saved: data/space_weather_raw.csv")
@@ -167,6 +168,15 @@ def save_data(df):
         print("\n❌ ERROR: Permission denied when saving data/space_weather_processed.csv!")
         print("   -> It seems the file is open in another program (e.g., Excel or a running Streamlit app).")
         print("   -> Please close it and try again.")
+=======
+    df.to_csv('data/space_weather_raw.csv', index=False)
+    print("\n💾 Saved: data/space_weather_raw.csv")
+
+    # Save processed (without timestamp) for ML training
+    ml_cols = [c for c in df.columns if c != 'timestamp']
+    df[ml_cols].to_csv('data/space_weather_processed.csv', index=False)
+    print("💾 Saved: data/space_weather_processed.csv")
+>>>>>>> c5010ad008495405d64a86bdda8c3e2a17da5bdc
 
 
 # ─────────────────────────────────────────────

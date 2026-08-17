@@ -1,5 +1,6 @@
 {
   "model_results": {
+<<<<<<< HEAD
     "Random Forest (PCA)": {
       "accuracy": 0.911,
       "precision": 0.909,
@@ -141,4 +142,111 @@
     "Medium": 1,
     "High": 2
   }
+=======
+    "Random Forest": {
+      "accuracy": 0.9985,
+      "precision": 0.9985,
+      "recall": 0.9985,
+      "f1_score": 0.9985,
+      "confusion_matrix": [
+        [
+          250,
+          0,
+          3
+        ],
+        [
+          0,
+          1301,
+          0
+        ],
+        [
+          0,
+          0,
+          446
+        ]
+      ]
+    },
+    "XGBoost": {
+      "accuracy": 0.9965,
+      "precision": 0.9965,
+      "recall": 0.9965,
+      "f1_score": 0.9965,
+      "confusion_matrix": [
+        [
+          249,
+          0,
+          4
+        ],
+        [
+          0,
+          1300,
+          1
+        ],
+        [
+          0,
+          2,
+          444
+        ]
+      ]
+    },
+    "Logistic Regression (PCA)": {
+      "accuracy": 0.8865,
+      "precision": 0.883,
+      "recall": 0.8865,
+      "f1_score": 0.884,
+      "confusion_matrix": [
+        [
+          220,
+          1,
+          32
+        ],
+        [
+          0,
+          1244,
+          57
+        ],
+        [
+          28,
+          109,
+          309
+        ]
+      ]
+    }
+  },
+  "feature_importance": {
+    "kp_index": 0.42048694578473284,
+    "dst_index": 0.2195081386568042,
+    "delta_kp": 0.1177328910797904,
+    "storm_severity": 0.05895393166108217,
+    "ap_index": 0.028280346877279733,
+    "ae_index": 0.027921583317485437,
+    "kp_rolling_3h": 0.0221735635981045,
+    "bz": 0.015565037292010623,
+    "mag_disturbance": 0.014877248266175121,
+    "extreme_kp": 0.01441671380712692,
+    "extreme_dst": 0.009110657532700144,
+    "solar_wind_speed": 0.006226212347129162,
+    "delta_bz": 0.005856779209902402,
+    "dst_rolling_6h": 0.004601912231799165,
+    "bz_rolling_3h": 0.003989791357484904,
+    "delta_wind": 0.0034417746997031286,
+    "wind_rolling_3h": 0.0028853895186095246,
+    "bx": 0.002602590737985974,
+    "by": 0.002488597135619923,
+    "xray_flux": 0.0024563877903512376,
+    "plasma_temp": 0.0023471026065330857,
+    "f107_index": 0.0022660016202335404,
+    "delta_proton": 0.00212549783472081,
+    "high_speed": 0.0020168922075268834,
+    "speed_pressure": 0.001992917662257811,
+    "proton_density": 0.0019668498667658623,
+    "radiation_pressure": 0.001965809200627188,
+    "bz_negative": 0.0017424360994571116
+  },
+  "classes": [
+    "High",
+    "Low",
+    "Medium"
+  ]
+>>>>>>> c5010ad008495405d64a86bdda8c3e2a17da5bdc
 }

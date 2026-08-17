@@ -70,6 +70,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+<<<<<<< HEAD
 # ─────────────────────────────────────────────
 # ORDINAL RISK ENCODER
 # Must be defined here so pickle can load it from label_encoder.pkl
@@ -88,6 +89,8 @@ class OrdinalRiskEncoder:
         return [self.mapping[v] for v in arr]
 
 
+=======
+>>>>>>> c5010ad008495405d64a86bdda8c3e2a17da5bdc
 PLOT_LAYOUT = dict(
     paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='rgba(0,0,0,0)',
@@ -184,11 +187,19 @@ def predict_risk(vals, models, pca, scaler, le, feature_cols, model_choice):
     X        = pd.DataFrame([fv])[feature_cols]
     X_scaled = scaler.transform(X)
 
+<<<<<<< HEAD
     # Use PCA-transformed input for all classification models
     model_map = {
         'Random Forest (PCA)': ('random_forest',       pca.transform(X_scaled)),
         'XGBoost (PCA)'      : ('xgboost',             pca.transform(X_scaled)),
         'Logistic Regression (PCA)': ('logistic_regression', pca.transform(X_scaled))
+=======
+    # For Logistic Regression use PCA-transformed input
+    model_map = {
+        'Random Forest'      : ('random_forest',       X_scaled),
+        'XGBoost'            : ('xgboost',             X_scaled),
+        'Logistic Regression': ('logistic_regression', pca.transform(X_scaled))
+>>>>>>> c5010ad008495405d64a86bdda8c3e2a17da5bdc
     }
     key, X_in = model_map[model_choice]
     model     = models[key]
@@ -259,7 +270,11 @@ def main():
             }
 
             # Run ALL 3 models simultaneously
+<<<<<<< HEAD
             all_model_names = ['Random Forest (PCA)', 'XGBoost (PCA)', 'Logistic Regression (PCA)']
+=======
+            all_model_names = ['Random Forest', 'XGBoost', 'Logistic Regression']
+>>>>>>> c5010ad008495405d64a86bdda8c3e2a17da5bdc
             all_preds = {}
             fv = None
             is_anomaly = False
@@ -288,7 +303,11 @@ def main():
             m_cols = st.columns(3)
             icons  = {'High':'🔴','Medium':'🟡','Low':'🟢'}
             colors = {'High':'#ff4757','Medium':'#ffa502','Low':'#2ed573'}
+<<<<<<< HEAD
             micons = {'Random Forest (PCA)':'🌲','XGBoost (PCA)':'⚡','Logistic Regression (PCA)':'📈'}
+=======
+            micons = {'Random Forest':'🌲','XGBoost':'⚡','Logistic Regression':'📈'}
+>>>>>>> c5010ad008495405d64a86bdda8c3e2a17da5bdc
             for i, mc in enumerate(all_model_names):
                 p    = all_preds[mc]['pred']
                 conf = all_preds[mc]['proba'].get(p, 0)
@@ -371,7 +390,11 @@ def main():
             st.plotly_chart(fig, use_container_width=True)
 
         with col2:
+<<<<<<< HEAD
             best = 'XGBoost (PCA)' if 'XGBoost (PCA)' in mr else list(mr.keys())[0]
+=======
+            best = 'XGBoost' if 'XGBoost' in mr else list(mr.keys())[0]
+>>>>>>> c5010ad008495405d64a86bdda8c3e2a17da5bdc
             cm   = mr[best]['confusion_matrix']
             fig  = px.imshow(cm, x=results['classes'], y=results['classes'],
                              text_auto=True, color_continuous_scale='Blues',
@@ -496,7 +519,11 @@ def main():
         - We started with **{pca_info['total_features']} features** (raw + engineered)
         - PCA reduced this to **{pca_info['n_components_95']} components** while keeping **95% of information**
         - The 2D and 3D scatter plots above show the three risk classes are **clearly separable** in PCA space
+<<<<<<< HEAD
         - All our primary classifiers (Random Forest, XGBoost, Logistic Regression) are trained on these PCA components (noise removed → better generalisation)
+=======
+        - Logistic Regression is trained on these PCA components (noise removed → better generalisation)
+>>>>>>> c5010ad008495405d64a86bdda8c3e2a17da5bdc
         - Features with **high PC1 loadings** (like Kp Index, Storm Severity, Dst) drive the most variance
         """)
 
@@ -590,7 +617,11 @@ def main():
     # TAB 5 — FEATURE IMPORTANCE
     # ══════════════════════════════════════════
     with tab5:
+<<<<<<< HEAD
         st.markdown('<div class="section-header">FEATURE IMPORTANCE (Physical Explainer Model)</div>',
+=======
+        st.markdown('<div class="section-header">FEATURE IMPORTANCE (Random Forest)</div>',
+>>>>>>> c5010ad008495405d64a86bdda8c3e2a17da5bdc
                     unsafe_allow_html=True)
         fi  = results['feature_importance']
         fdf = pd.DataFrame(list(fi.items()), columns=['Feature','Importance'])
@@ -640,7 +671,11 @@ with st.sidebar:
     st.markdown("---")
     st.markdown("""<div style="font-family:'Share Tech Mono',monospace;color:#555;font-size:0.75rem">
     MODELS:<br>
+<<<<<<< HEAD
     • Random Forest (PCA)<br>• XGBoost (PCA)<br>
+=======
+    • Random Forest<br>• XGBoost<br>
+>>>>>>> c5010ad008495405d64a86bdda8c3e2a17da5bdc
     • Logistic Regression (PCA)<br>• Isolation Forest<br><br>
     PCA: 22 → n_95 components<br>
     DATA: NASA/NOAA Space Weather

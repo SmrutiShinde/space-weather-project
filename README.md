@@ -42,7 +42,11 @@ engineers features, saves processed CSV files.
 ```bash
 python models/train_models.py
 ```
+<<<<<<< HEAD
 Trains Random Forest (PCA), XGBoost (PCA), Logistic Regression, Isolation Forest.
+=======
+Trains Random Forest, XGBoost, Logistic Regression (PCA), Isolation Forest.
+>>>>>>> c5010ad008495405d64a86bdda8c3e2a17da5bdc
 Saves all .pkl model files.
 
 ### Step 3 — Launch dashboard
@@ -85,9 +89,15 @@ Opens at http://localhost:8501
 
 | Model | Features Used | Purpose |
 |-------|--------------|---------|
+<<<<<<< HEAD
 | Random Forest | PCA components | Primary classifier + PCA demo |
 | XGBoost | PCA components | Highest accuracy |
 | Logistic Regression | PCA components | Baseline |
+=======
+| Random Forest | All 28 features | Primary classifier |
+| XGBoost | All 28 features | Highest accuracy |
+| Logistic Regression | PCA components | Baseline + PCA demo |
+>>>>>>> c5010ad008495405d64a86bdda8c3e2a17da5bdc
 | Isolation Forest | All 28 features | Anomaly detection |
 
 ---

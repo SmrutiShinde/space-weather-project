@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 streamlit>=1.32.0
 pandas>=2.2.1
 numpy>=1.26.4
@@ -6,3 +7,13 @@ xgboost>=2.0.3
 plotly>=5.20.0
 matplotlib>=3.8.3
 seaborn>=0.13.2
+=======
+streamlit==1.32.0
+pandas==2.2.1
+numpy==1.26.4
+scikit-learn==1.4.1
+xgboost==2.0.3
+plotly==5.20.0
+matplotlib==3.8.3
+seaborn==0.13.2
+>>>>>>> c5010ad008495405d64a86bdda8c3e2a17da5bdc
